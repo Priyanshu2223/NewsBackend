@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+}
+
+/* Removed .left-section, .date, and .login-subscribe styles */

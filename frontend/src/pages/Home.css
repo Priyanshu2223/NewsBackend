@@ -1,0 +1,134 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.home-container {
+  padding: 20px;
+}
+
+/* Header Section */
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: #004085;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.newsapp-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+/* Content Layout */
+.content-layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Main News Section */
+.main-news-section {
+  flex: 2;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.main-news-card {
+  text-align: center;
+}
+
+.main-news-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.main-news-title {
+  font-size: 1.8rem;
+  margin: 15px 0;
+}
+
+.main-news-description {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.read-more-btn {
+  display: inline-block;
+  background-color: #004085;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.read-more-btn:hover {
+  background-color: #002752;
+}
+
+/* Side News Section */
+.side-news-section {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.side-news-header {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.side-news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-news-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.side-news-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.side-news-title {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.side-news-link {
+  font-size: 0.9rem;
+  color: #004085;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.side-news-link:hover {
+  text-decoration: underline;
+}
