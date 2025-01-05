@@ -2,22 +2,31 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Home.css';
 
-
-function Home() {
+function Home({ category, language, searchQuery }) {
   const [liveNews, setLiveNews] = useState(null);
   const [sideNews, setSideNews] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/news?category=general')
-      .then((response) => {
-        const articles = Array.isArray(response.data) ? response.data : response.data.data;
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/news', {
+          params: {
+            category,
+            lang: language,
+            query: searchQuery
+          }
+        });
+        const articles = Array.isArray(response.data) ? response.data : response.data.articles;
         if (articles && articles.length > 0) {
-          setLiveNews(articles[0]); // Main news
-          setSideNews(articles.slice(1, 5)); // Side news
+          setLiveNews(articles[0]);
+          setSideNews(articles.slice(1, 5));
         }
-      })
-      .catch((error) => console.error('Error fetching news:', error));
-  }, []);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    };
+    fetchNews();
+  }, [category, language, searchQuery]);
 
   return (
     <div className="home-container">
@@ -33,12 +42,21 @@ function Home() {
         <div className="main-news-section">
           {liveNews ? (
             <div className="main-news-card">
-              {liveNews.urlToImage && (
+              {liveNews.urlToImage ? (
                 <img src={liveNews.urlToImage} alt={liveNews.title} className="main-news-image" />
+              ) : (
+                <img src="/placeholder-image.png" alt="No Image Available" className="main-news-image" />
               )}
-              <h2 className="main-news-title">{liveNews.title}</h2>
-              <p className="main-news-description">{liveNews.description}</p>
-              <a href={liveNews.url} target="_blank" rel="noopener noreferrer" className="read-more-btn">
+              <h2 className="main-news-title">{liveNews.title || "Untitled Article"}</h2>
+              <p className="main-news-description">
+                {liveNews.description || "No description available for this article."}
+              </p>
+              <a
+                href={liveNews.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="read-more-btn"
+              >
                 Read More
               </a>
             </div>
@@ -54,17 +72,29 @@ function Home() {
             {sideNews.length > 0 ? (
               sideNews.map((article, index) => (
                 <div className="side-news-card" key={index}>
-                  {article.urlToImage && (
+                  {article.urlToImage ? (
                     <img
                       src={article.urlToImage}
                       alt={article.title}
                       className="side-news-image"
                     />
-                  )}
-                  <h4 className="side-news-title">{article.title}</h4>
-                  <a href={article.url} target="_blank" rel="noopener noreferrer" className="side-news-link">
-                    Read More
-                  </a>
+                  ) : (
+                    <img
+                      src="/placeholder-image.png"
+                      alt="No Image Available"
+                      className="side-news-image"
+                    )}
+                  <div className="side-news-text">
+                    <h4 className="side-news-title">{article.title || "Untitled Article"}</h4>
+                    <a
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="side-news-link"
+                    >
+                      Read More
+                    </a>
+                  </div>
                 </div>
               ))
             ) : (

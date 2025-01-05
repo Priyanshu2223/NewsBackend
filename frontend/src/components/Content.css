@@ -12,7 +12,6 @@
 
 .filter-dropdown {
   padding: 8px 12px;
-  font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -38,63 +37,22 @@
   color: #555;
 }
 
-.news-item .read-more {
+.news-item button {
   padding: 8px 12px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-.news-item .read-more:hover {
+.news-item button:hover {
   background-color: #0056b3;
 }
 
-.back-button {
-  padding: 8px 12px;
-  margin-bottom: 20px;
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.back-button:hover {
-  background-color: #5a6268;
-}
-
-.news-image {
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 10px;
-}
-
-.state-select {
-  margin: 15px 0;
-}
-
 .state-select select {
-  padding: 5px;
-  font-size: 14px;
+  padding: 8px;
+  font-size: 16px;
 }
-.news-image {
-  width: 100%;  /* Make the image take up full width of its container */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 400px;  /* Optional: Limit max width */
-  display: block; /* Ensure it doesn't have any margin or padding */
-  margin-bottom: 10px;  /* Optional: Add spacing between image and text */
-}
-
-.news-item {
-  margin-bottom: 20px; /* Space between each news item */
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-
-
 
 .error {
   color: red;
